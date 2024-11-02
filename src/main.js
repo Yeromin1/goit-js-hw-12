@@ -68,14 +68,25 @@ loadMoreBtn.addEventListener('click', async () => {
     const images = await fetchImages(currentQuery, currentPage); // Запрос изображений для следующей страницы
     renderImages(images); // Отображение новых изображений
 
+    // Получение размеров и позиции галереи после добавления новых изображений
+    const galleryRect = gallery.getBoundingClientRect();
+    console.log(galleryRect); // Вывод информации о позиции и размере галереи после загрузки
+
     // Проверка, достигли ли мы конца результатов
     if (images.length === 0) {
       loadMoreBtn.classList.add('hidden'); // Скрываем кнопку, если больше нет изображений
       iziToast.info({
         title: 'Info',
-        message: "We're sorry, there are no more posts to load.", // Сообщение, если больше нечего загружать
+        message: "We're sorry, but you've reached the end of search results.", // Сообщение, если больше нечего загружать
         position: 'topRight',
       });
+    } else {
+      // Получаем высоту одной карточки галереи
+      const photoCard = document.querySelector('.photo-card'); // Предполагается, что .photo-card - это класс карточки
+      if (photoCard) {
+        const cardHeight = photoCard.getBoundingClientRect().height; // Получаем высоту карточки
+        window.scrollBy({ top: cardHeight * 2, behavior: 'smooth' }); // Прокручиваем на две высоты карточки
+      }
     }
   } catch (error) {
     console.error(error); // Логирование ошибки в консоль
@@ -86,6 +97,5 @@ loadMoreBtn.addEventListener('click', async () => {
     });
   } finally {
     loader.classList.add('hidden'); // Скрыть индикатор загрузки
-    window.scrollBy({ top: 200, behavior: 'smooth' }); // Плавная прокрутка вниз к новому контенту
   }
 });

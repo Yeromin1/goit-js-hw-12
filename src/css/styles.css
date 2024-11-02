@@ -1,6 +1,8 @@
 body {
   font-family: 'Montserrat', sans-serif;
   padding: 50px 20px;
+  width: 1440px;
+  margin: 0 auto;
 }
 
 #search-form {
