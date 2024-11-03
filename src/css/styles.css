@@ -131,6 +131,8 @@ img {
   gap: 24px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 32px;
+  text-align: center;
 }
 
 .hidden {
@@ -162,4 +164,13 @@ b {
 
 .iziToast-capsule {
   text-align: right;
+}
+
+#load-more {
+  width: 125px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
 }

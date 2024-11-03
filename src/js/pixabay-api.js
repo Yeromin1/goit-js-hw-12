@@ -7,6 +7,18 @@ export const fetchImages = async (query, page) => {
   const url = `${BASE_URL}?key=${API_KEY}&q=${encodeURIComponent(
     query
   )}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=15`;
-  const response = await axios.get(url);
-  return response.data.hits;
+
+  try {
+    const response = await axios.get(url);
+    return {
+      totalHits: response.data.totalHits,
+      hits: response.data.hits,
+    };
+  } catch (error) {
+    console.error(
+      'Error fetching images:',
+      error.response ? error.response.data : error.message
+    );
+    throw error;
+  }
 };

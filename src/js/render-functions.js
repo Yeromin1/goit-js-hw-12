@@ -1,6 +1,3 @@
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
-
 export const renderImages = images => {
   const gallery = document.querySelector('.gallery');
   const markup = images
@@ -22,6 +19,4 @@ export const renderImages = images => {
     .join('');
 
   gallery.insertAdjacentHTML('beforeend', markup);
-  const lightbox = new SimpleLightbox('.gallery a');
-  lightbox.refresh();
 };
