@@ -77,7 +77,7 @@ form.addEventListener('submit', async event => {
 });
 
 loadMoreBtn.addEventListener('click', async () => {
-  const maxPages = Math.ceil(totalHits / imagesPerPage); // Максимальное количество страниц
+  const maxPages = Math.ceil(totalHits / imagesPerPage); // MAX количество страниц
 
   if (currentPage >= maxPages) {
     iziToast.info({
@@ -85,7 +85,7 @@ loadMoreBtn.addEventListener('click', async () => {
       message: "We're sorry, but you've reached the end of search results.",
       position: 'topRight',
     });
-    loadMoreBtn.classList.add('hidden'); // Скрываем кнопку, если больше нет изображений
+    loadMoreBtn.classList.add('hidden'); // Сховуємо кнопку, якщо більше немає зображень
     return;
   }
 
@@ -95,6 +95,10 @@ loadMoreBtn.addEventListener('click', async () => {
   try {
     const { hits: images } = await fetchImages(currentQuery, currentPage);
 
+    // Відмалювання зображень
+    renderImages(images);
+    lightbox.refresh();
+
     if (images.length === 0) {
       iziToast.info({
         title: 'Info',
@@ -103,8 +107,7 @@ loadMoreBtn.addEventListener('click', async () => {
       });
       loadMoreBtn.classList.add('hidden');
     } else {
-      renderImages(images);
-      lightbox.refresh();
+      // Якщо зображення є, виконати плавний скрол
       smoothScroll();
     }
   } catch (error) {
