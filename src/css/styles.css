@@ -33,17 +33,25 @@ button {
   border-radius: 8px;
   width: 75px;
   height: 40px;
-  background-color: #4e75ff;
   font-weight: 500;
   line-height: 150%;
   letter-spacing: 0.04em;
   color: #fff;
   border: none;
   cursor: pointer;
+  background-size: 200% auto;
+  box-shadow: 0 4px 6px rgba(54, 54, 113, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  background-image: linear-gradient(
+    to right,
+    #895cf2 0%,
+    #ffabf4 50%,
+    #895cf2 100%
+  );
+  transition: 0.5s;
 }
 
 button:hover {
-  background-color: #6c8cff;
+  background-position: right center;
 }
 
 .loader {
