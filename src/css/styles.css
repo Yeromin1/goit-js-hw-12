@@ -40,7 +40,9 @@ button {
   border: none;
   cursor: pointer;
   background-size: 200% auto;
-  box-shadow: 0 4px 6px rgba(54, 54, 113, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 4px 6px rgba(54, 54, 113, 0.11),
+    0 1px 3px rgba(0, 0, 0, 0.08);
   background-image: linear-gradient(
     to right,
     #895cf2 0%,
@@ -52,6 +54,18 @@ button {
 
 button:hover {
   background-position: right center;
+}
+
+.container {
+  max-width: 375px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+.search-form {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
 }
 
 .loader {
@@ -181,4 +195,17 @@ b {
 .button-container {
   display: flex;
   justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 0 20px;
+  }
+}
+
+@media (min-width: 1158px) {
+  .container {
+    max-width: 1158px;
+  }
 }
