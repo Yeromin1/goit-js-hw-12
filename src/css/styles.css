@@ -1,6 +1,5 @@
 body {
   font-family: 'Montserrat', sans-serif;
-  padding: 50px 20px;
 }
 
 #search-form {
@@ -56,7 +55,7 @@ button:hover {
 
 .container {
   max-width: 375px;
-  padding: 0 16px;
+  padding: 50px 16px;
   margin: 0 auto;
 }
 
@@ -198,7 +197,7 @@ b {
 @media (min-width: 768px) {
   .container {
     max-width: 768px;
-    padding: 0 20px;
+    padding: 50px 20px;
   }
 }
 
